@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+<p>资产脆弱性列表</p>
+    <div>
+        <table border="1">
+            <tr>
+                <td>资产编号</td>
+                <td>脆弱性编号</td>
+                <td>脆弱性名称</td>
+            </tr>
+            {% for row in vul %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+<p>威胁列表</p>
+    <div>
+        <table border="1">
+            <tr>
+                <td>威胁编号</td>
+                <td>威胁类别</td>
+            </tr>
+            {% for row in threat %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div style="position:absolute; top: 10px; right: 30px" >
+    <p>已导入的映射关系</p>
+        <table border="1">
+            <tr>
+                <td>资产编号</td>
+                <td>脆弱性编号</td>
+                <td>威胁编号</td>
+            </tr>
+            {% for row in map %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    <p>创建新的脆弱性映射关系</p>
+    <form action="/mapping" name="form" method="post">
+        <table>
+            <tr>
+                <td>资产编号</td><td>{{ form.Asset_id }}</td>
+                <td>脆弱性编号</td><td>{{ form.Vul_id }}</td>
+                <td>威胁编号</td><td>{{ form.THR_id }}</td>
+            </tr>
+        </table>
+        <input type="submit" value="新增"></p>
+    </form>
+
+    </div>
+
+</body>
+</html>

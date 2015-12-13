@@ -1,0 +1,27 @@
+<html>
+    <title>{{ title }}</title>
+    <div>
+        <table border="1">
+            <tr>
+                <td>项目编号</td><td>项目名称</td><td>客户名称</td>
+            </tr>
+            {% for row in result %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td><a href="/project/{{ row[0] }}">{{ row[1] }}</a></td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>创建一个新的项目</p>
+
+    <form action="/project" method="post" name="form">
+        {{ form.hidden_tag() }}
+        <p>项目编号:{{ form.new_project_id }}</p>
+        <p>项目名称:{{ form.project_name }}</p>
+        <p>客户单位:{{ form.project_client }}</p>
+        <p><input type="submit" value="创建"></p>
+    </form>
+</html>

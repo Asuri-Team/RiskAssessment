@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <p>信息系统面临的威胁类型是既定的，不会随时间或机构变化而变化</p>
+    <p>每一个风险发生的可能性是一个宏观的数值，对于整个信息系统来说，是一致的</p>
+    <p>请在此处录入信息系统的威胁可能性参数</p>
+    <form action="/threat_possibility" method="post" name="form">
+        {{ form.hidden_tag() }}
+        <table border="1">
+            <tr>
+                <td>THR-01</td><td>软硬件故障:</td><td>{{ form.THR_1 }}</td>
+            </tr>
+            <tr>
+                <td>THR-02</td><td>物理环境影响:</td><td>{{ form.THR_2 }}</td>
+            </tr>
+            <tr>
+                <td>THR-03</td><td>无作为或操作失误:</td><td>{{ form.THR_3 }}</td>
+            </tr>
+            <tr>
+                <td>THR-04</td><td>管理不到位:</td><td>{{ form.THR_4 }}</td>
+            </tr>
+            <tr>
+                <td>THR-05</td><td>恶意代码:</td><td>{{ form.THR_5 }}</td>
+            </tr>
+            <tr>
+                <td>THR-06</td><td>越权或滥用:</td><td>{{ form.THR_6 }}</td>
+            </tr>
+            <tr>
+                <td>THR-07</td><td>网络攻击:</td><td>{{ form.THR_7 }}</td>
+            </tr>
+            <tr>
+                <td>THR-08</td><td>物理攻击:</td><td>{{ form.THR_8 }}</td>
+            </tr>
+            <tr>
+                <td>THR-09</td><td>泄密:</td><td>{{ form.THR_9 }}</td>
+            </tr>
+            <tr>
+                <td>THR-10</td><td>篡改:</td><td>{{ form.THR_10 }}</td>
+            </tr>
+            <tr>
+                <td>THR-11</td><td>抵赖:</td><td>{{ form.THR_11 }}</td>
+            </tr>
+        </table>
+        <p><input type="submit" value="提交"></p>
+    </form>
+</body>
+</html>

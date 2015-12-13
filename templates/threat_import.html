@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+<p>所选系统中的所有资产如下：</p>
+    <div>
+        <table border="1">
+            <tr>
+                <td>资产编号</td>
+                <td>资产名称</td>
+            </tr>
+            {% for row in result1 %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+<p>已导入的威胁数据</p>
+    <div>
+        <table border="1">
+            <tr>
+                <td>资产编号</td>
+                <td>THR-01</td>
+                <td>THR-02</td>
+                <td>THR-03</td>
+                <td>THR-04</td>
+                <td>THR-05</td>
+                <td>THR-06</td>
+                <td>THR-07</td>
+                <td>THR-08</td>
+                <td>THR-09</td>
+                <td>THR-10</td>
+                <td>THR-11</td>
+            </tr>
+            {% for row in result2 %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                    <td>{{ row[6] }}</td>
+                    <td>{{ row[7] }}</td>
+                    <td>{{ row[8] }}</td>
+                    <td>{{ row[9] }}</td>
+                    <td>{{ row[10] }}</td>
+                    <td>{{ row[11] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div>
+    <p>请在这里输入资产的脆弱性信息和赋值</p>
+        <form action="/threat/{{ id }}" name="form" method="post">
+            <table border="1">
+                <tr>
+                    <td>资产编号</td><td>{{ form.Asset_id }}</td>
+                </tr>
+                <tr>
+                    <td>THR-01</td><td>{{ form.THR_1 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-02</td><td>{{ form.THR_2 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-03</td><td>{{ form.THR_3 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-04</td><td>{{ form.THR_4 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-05</td><td>{{ form.THR_5 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-06</td><td>{{ form.THR_6 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-07</td><td>{{ form.THR_7 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-08</td><td>{{ form.THR_8 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-09</td><td>{{ form.THR_9 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-10</td><td>{{ form.THR_10 }}</td>
+                </tr>
+                <tr>
+                    <td>THR-11</td><td>{{ form.THR_11 }}</td>
+                </tr>
+            </table>
+            <input type="submit" value="提交"></p>
+        </form>
+    </div>
+</body>
+</html>

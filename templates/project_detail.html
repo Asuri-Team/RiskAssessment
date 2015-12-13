@@ -1,0 +1,40 @@
+<html>
+    <title>{{ title }}</title>
+    <div>
+        <table border="1">
+            <tr>
+                <td>项目编号</td><td>项目名称</td><td>客户名称</td>
+            </tr>
+            {% for row in result1 %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <table border="1">
+            <tr>
+                <td>系统编号</td><td>系统名称</td>
+            </tr>
+            {% for row in result2 %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td><a href="{{ id }}/{{ row[0] }}">{{ row[1] }}</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>系统录入</p>
+
+    <form action="/project/{{ id }}" method="post" name="form">
+        {{ form.hidden_tag() }}
+        <p>系统编号:{{ form.System_id }}</p>
+        <p>系统名称:{{ form.System_name }}</p>
+        <p><input type="submit" value="新建系统"></p>
+    </form>
+</html>

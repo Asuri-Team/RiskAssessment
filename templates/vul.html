@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>{{ title }}</title>
+</head>
+<body>
+    <div>
+        <table border="1">
+            <p>请选择要导入的系统名称</p>
+            <tr>
+                <td>系统编号</td><td>系统名称</td>
+            </tr>
+            {% for row in result %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td><a href="/vul/{{ row[0] }}">{{ row[1] }}</a></td>
+            </tr>
+             {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

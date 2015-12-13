@@ -1,0 +1,68 @@
+<html xmlns="http://www.w3.org/1999/html">
+    <title>{{ title }}</title>
+    <div>
+        <table border="1">
+            <tr>
+                <td>系统编号</td><td>系统名称</td>
+            </tr>
+            {% for row in result1 %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+             {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div>
+        <table border="1">
+            <tr>
+                <td>资产编号</td>
+                <!--<td>所属系统</td>-->
+                <td>资产名称</td>
+                <td>资产类型</td>
+                <td>保密性赋值</td>
+                <td>完整性赋值</td>
+                <td>可用性赋值</td>
+                <td>资产赋值</td>
+            </tr>
+            {% for row in result2 %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <!--<td>{{ row[1] }}</td>-->
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+                <td>{{ row[6] }}</td>
+                <td>{{ row[7] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <p>录入新的资产</p>
+    <form action="/project/{{ proj }}/{{ sys }}" method="post" name="form">
+        {{ form.hidden_tag() }}
+        <table>
+            <tr>
+                <td>资产编号:</td>
+                <td>资产名称:</td>
+                <td>资产类型:</td>
+                <td>保密性赋值:</td>
+                <td>完整性赋值:</td>
+                <td>可用性赋值:</td>
+            </tr>
+            <tr>
+                <td>{{ form.Asset_id }}</td>
+                <td>{{ form.Asset_name }}</td>
+                <td>{{ form.Asset_type }}</td>
+                <td>{{ form.Asset_confidentiality }}</td>
+                <td>{{ form.Asset_integrality }}</td>
+                <td>{{ form.Asset_availability }}</td>
+            </tr>
+
+        </table>
+        <p><input type="submit" value="新建资产"></p>
+    </form>
+</html>
